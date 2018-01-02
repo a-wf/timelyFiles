@@ -117,6 +117,8 @@ if ! shopt -oq posix; then
 fi
 
 
+PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\e[1m\]\[\033[01;32m\]\u@\h\[\e[32m\]:\[\e[m\]\[\e[01;34m\]\W\[\e[m\]\[\e[32m\]\\$\[\e[m\] \[\e]2;$tname\a\] "
+
 # function to set terminal title
 function s_title( ){
   if [[ -z "$ORIG" ]]; then
@@ -126,7 +128,7 @@ function s_title( ){
   PS1=${ORIG}${TITLE}
 }
 
-# set title name
+# set title name default terminal
 if [[ "$TERM" = "xterm-256color" ]]; then
   echo "set a title for your terminal window"
   read -r tname
@@ -138,3 +140,12 @@ if [[ "$PS1" = *"tmux"* ]]; then
   tmux new -s $tname
   exit
 fi
+
+# set work_subject for terminator
+if [[ "$TERM" = "xterm" ]]; then
+  echo "set a work subject for your terminator pane"
+  read -r WORK_SUBJECT
+  PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\e[1m\]\[\033[38;5;39m\][$WORK_SUBJECT]:\[\e[m\]\[\033[01;32m\]\u@\h\[\e[32m\]:\[\e[m\]\[\e[01;34m\]\W\[\e[m\]\[\e[32m\]\\$\[\e[m\] \[\e]2;$tname\a\] "
+  s_title $WORK_SUBJECT
+fi
+

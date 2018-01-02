@@ -1,0 +1,27 @@
+[global_config]
+  enabled_plugins = MavenPluginURLHandler,
+  title_font = Sans 13
+  title_hide_sizetext = True
+[keybindings]
+  split_horiz = <Primary>less
+  split_vert = <Primary>exclam
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_darkness = 0.75
+    background_image = None
+    background_type = transparent
+    font = Monospace 13
+    foreground_color = "#00ff36"
+    palette = "#595c5d:#ff9595:#00ffd1:#c4a000:#6189de:#01fcb5:#06989a:#d3d7cf:#929292:#ff4545:#6766ff:#fce94f:#76b6e1:#ff9ef5:#34e2e2:#eeeeec"
+    scrollback_infinite = True
+    show_titlebar = False
+    use_system_font = False
