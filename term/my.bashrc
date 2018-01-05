@@ -117,7 +117,7 @@ if ! shopt -oq posix; then
 fi
 
 
-PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\e[1m\]\[\033[01;32m\]\u@\h\[\e[32m\]:\[\e[m\]\[\e[01;34m\]\W\[\e[m\]\[\e[32m\]\\$\[\e[m\] \[\e]2;$tname\a\] "
+PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\e[1m\]\[\033[01;32m\]\u@\h\[\e[32m\]:\[\e[m\]\[\e[01;34m\]\w\[\e[m\]\[\e[32m\]\\$\[\e[m\] \[\e]2;$tname\a\] "
 
 # function to set terminal title
 function s_title( ){
@@ -126,26 +126,35 @@ function s_title( ){
   fi
   TITLE="\[\e]2;$1\a\]"
   PS1=${ORIG}${TITLE}
+  ORIG=''
 }
 
 # set title name default terminal
 if [[ "$TERM" = "xterm-256color" ]]; then
   echo "set a title for your terminal window"
   read -r tname
+  if [[ "$tname" = "" ]]; then
+     tname="\W"
+  fi
   s_title $tname
 fi
 
 # create tmux server 
 if [[ "$PS1" = *"tmux"* ]]; then
-  tmux new -s $tname
+/bin/bash: q: command not found
   exit
 fi
 
 # set work_subject for terminator
-if [[ "$TERM" = "xterm" ]]; then
-  echo "set a work subject for your terminator pane"
-  read -r WORK_SUBJECT
-  PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\e[1m\]\[\033[38;5;39m\][$WORK_SUBJECT]:\[\e[m\]\[\033[01;32m\]\u@\h\[\e[32m\]:\[\e[m\]\[\e[01;34m\]\W\[\e[m\]\[\e[32m\]\\$\[\e[m\] \[\e]2;$tname\a\] "
-  s_title $WORK_SUBJECT
-fi
-
+function ss_title( ) {
+  if [[ "$TERM" = "xterm" ]]; then
+    echo "set a work subject for your terminator pane"
+    read -r WORK_SUBJECT
+    if [[ "$WORK_SUBJECT" = "" ]]; then
+       WORK_SUBJECT="General"
+    fi
+    PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\e[1m\]\[\033[38;5;39m\][$WORK_SUBJECT]:\[\e[m\]\[\033[01;32m\]\u@\h\[\e[32m\]:\[\e[m\]\[\e[01;34m\]\w\[\e[m\]\[\e[32m\]\\$\[\e[m\] "
+    s_title $WORK_SUBJECT 
+  fi
+}
+ss_title
