@@ -141,8 +141,8 @@ fi
 
 # create tmux server 
 if [[ "$PS1" = *"tmux"* ]]; then
-/bin/bash: q: command not found
-  exit
+   tmux new -s $tname
+   exit  
 fi
 
 # set work_subject for terminator
