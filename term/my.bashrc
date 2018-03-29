@@ -10,14 +10,18 @@ esac
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
-HISTCONTROL=ignoreboth
+# Avoid duplicates
+HISTCONTROL=ignoredups:erasedups  
 
 # append to the history file, don't overwrite it
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=6000
+HISTFILESIZE=7168
+
+PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -117,7 +121,7 @@ if ! shopt -oq posix; then
 fi
 
 
-PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\e[1m\]\[\033[01;32m\]\u@\h\[\e[32m\]:\[\e[m\]\[\e[01;34m\]\w\[\e[m\]\[\e[32m\]\\$\[\e[m\] \[\e]2;$tname\a\] "
+PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\e[1m\]\[\033[01;32m\]\!-\u@\h\[\e[32m\]:\[\e[m\]\[\e[01;34m\]\w\[\e[m\]\[\e[32m\]\\$\[\e[m\] \[\e]2;$tname\a\] "
 
 # function to set terminal title
 function s_title( ){
@@ -153,8 +157,21 @@ function ss_title( ) {
     if [[ "$WORK_SUBJECT" = "" ]]; then
        WORK_SUBJECT="General"
     fi
-    PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\e[1m\]\[\033[38;5;39m\][$WORK_SUBJECT]:\[\e[m\]\[\033[01;32m\]\u@\h\[\e[32m\]:\[\e[m\]\[\e[01;34m\]\w\[\e[m\]\[\e[32m\]\\$\[\e[m\] "
+    PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\e[1m\]\[\033[38;5;39m\][$WORK_SUBJECT:\!]:\[\e[m\]\[\033[01;32m\]\u@\h\[\e[32m\]:\[\e[m\]\[\e[01;34m\]\w\[\e[m\]\[\e[32m\]\\$\[\e[m\] "
     s_title $WORK_SUBJECT 
   fi
 }
 ss_title
+
+PATH="$HOME/WorkSpace/Bins:$PATH"
+PATH="$HOME/WorkSpace/Bins/docker_bash_autocomplete:$PATH"
+
+if [ -f /home/sah0318/WorkSpace/Bins/docker_bash_autocomplete/autocomplete.sh ]; then
+   source /home/sah0318/WorkSpace/Bins/docker_bash_autocomplete/autocomplete.sh
+fi
+
+if [ -f /home/sah0318/WorkSpace/Bins/scripts/proxy_config.sh ]; then
+   source /home/sah0318/WorkSpace/Bins/scripts/proxy_config.sh
+fi
+
+ss_setproxy

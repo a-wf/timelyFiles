@@ -9,19 +9,22 @@
   [[default]]
     [[[child1]]]
       parent = window0
+      profile = default
       type = Terminal
     [[[window0]]]
       parent = ""
+      size = 1600, 600
       type = Window
 [plugins]
 [profiles]
   [[default]]
-    background_darkness = 0.75
+    alternate_screen_scroll = False
+    background_darkness = 0.88
     background_image = None
     background_type = transparent
     font = Monospace 13
-    foreground_color = "#00ff36"
     palette = "#595c5d:#ff9595:#00ffd1:#c4a000:#6189de:#01fcb5:#06989a:#d3d7cf:#929292:#ff4545:#6766ff:#fce94f:#76b6e1:#ff9ef5:#34e2e2:#eeeeec"
+    scroll_on_output = False
     scrollback_infinite = True
     show_titlebar = False
     use_system_font = False
