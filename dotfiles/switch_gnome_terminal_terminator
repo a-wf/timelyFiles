@@ -1,0 +1,3 @@
+sudo mv  /usr/bin/gnome-terminal /usr/bin/gnome-terminal.mybak
+sudo ln -s /usr/bin/terminator /usr/bin/gnome-terminal
+

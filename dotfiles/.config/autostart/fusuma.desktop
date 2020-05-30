@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=fusuma
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[fr_FR]=Fusuma
+Name=Fusuma
+Comment[fr_FR]=FIngers Gesture touchPad
+Comment=FIngers Gesture touchPad

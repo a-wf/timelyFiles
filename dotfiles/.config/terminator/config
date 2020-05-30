@@ -1,0 +1,114 @@
+[global_config]
+  enabled_plugins = MavenPluginURLHandler,
+  title_font = Sans 13
+  title_hide_sizetext = True
+[keybindings]
+  hide_window = <Primary><Shift><Alt>a
+  split_horiz = <Primary>less
+  split_vert = <Primary>exclam
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      profile = default
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      size = 1000, 600
+      type = Window
+  [[Nouvel agencement]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = 08181e67-8366-4a15-9c98-5a167e526036
+      last_active_window = False
+      maximised = True
+      order = 0
+      parent = ""
+      position = 0:26
+      size = 1920, 1026
+      title = General
+      type = Window
+    [[[child1]]]
+      order = 0
+      parent = child0
+      position = 201
+      ratio = 0.196865817826
+      type = VPaned
+    [[[child10]]]
+      fullscreen = False
+      last_active_term = c7fcd0d0-282a-4db1-b725-dbba032465b6
+      last_active_window = True
+      maximised = False
+      order = 0
+      parent = ""
+      position = 299:148
+      size = 1000, 600
+      title = General
+      type = Window
+    [[[child3]]]
+      order = 1
+      parent = child1
+      position = 201
+      ratio = 0.245421245421
+      type = VPaned
+    [[[child5]]]
+      order = 1
+      parent = child3
+      position = 201
+      ratio = 0.325769854133
+      type = VPaned
+    [[[child7]]]
+      order = 1
+      parent = child5
+      position = 201
+      ratio = 0.484337349398
+      type = VPaned
+    [[[terminal11]]]
+      order = 0
+      parent = child10
+      profile = default
+      type = Terminal
+      uuid = c7fcd0d0-282a-4db1-b725-dbba032465b6
+    [[[terminal2]]]
+      order = 0
+      parent = child1
+      profile = default
+      type = Terminal
+      uuid = 08181e67-8366-4a15-9c98-5a167e526036
+    [[[terminal4]]]
+      order = 0
+      parent = child3
+      profile = default
+      type = Terminal
+      uuid = f6251ccb-a4e5-4244-98c3-0acf61afc324
+    [[[terminal6]]]
+      order = 0
+      parent = child5
+      profile = default
+      type = Terminal
+      uuid = 9af7b6cf-e0dd-4011-9700-67665839914d
+    [[[terminal8]]]
+      order = 0
+      parent = child7
+      profile = default
+      type = Terminal
+      uuid = 001add1c-a139-43bf-9b8a-062850c307a9
+    [[[terminal9]]]
+      order = 1
+      parent = child7
+      profile = default
+      type = Terminal
+      uuid = 8411f87c-34d0-4edb-ba18-16edfb900205
+[plugins]
+[profiles]
+  [[default]]
+    background_darkness = 0.94
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    custom_command = tmux attach -t default || tmux new -s default
+    font = Monospace 13
+    palette = "#595c5d:#ff9595:#f3f3f3:#c4a000:#6189de:#01fcb5:#06989a:#d3d7cf:#929292:#ff4545:#6766ff:#fce94f:#76b6e1:#ff9ef5:#34e2e2:#eeeeec"
+    scrollback_infinite = True
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False

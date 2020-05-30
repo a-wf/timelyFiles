@@ -1,0 +1,13 @@
+i3-gaps
+neofetch
+w3m
+scrot
+neovim
+    nord vim
+    airline
+    https://github.com/powerline/fonts
+compton -> pico
+goto-cjbassi
+Dunst
+feh
+pywal
