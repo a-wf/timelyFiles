@@ -1,6 +1,0 @@
-*:
-	remove the prefix "my", for hidden files and hidden folders
-	`$	rename "s/my//" my.* `
-
-	copy these files to ~/
-	`$	cp -r .* ~/	`

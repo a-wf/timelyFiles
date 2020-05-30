@@ -18,8 +18,8 @@ function ss_setproxy() {
     # export HTTPS_PROXY='http://proxy:3128'
     export ftp_proxy='http://proxy:3128'
     # export socks_proxy='http://proxy:3128'
-    export no_proxy="localhost,127.0.0.1,.softathome.com,192.168.0.0/16, 10.190.0.0/16, 90.84.0.0/16, 84.39.0.0/16"
-    export NO_PROXY="localhost,127.0.0.1,.softathome.com,192.168.0.0/16, 10.190.0.0/16, 90.84.0.0/16, 84.39.0.0/16"
+    export no_proxy="localhost,127.0.0.1,192.168.0.0/16, 10.190.0.0/16, 90.84.0.0/16, 84.39.0.0/16"
+    export NO_PROXY="localhost,127.0.0.1,192.168.0.0/16, 10.190.0.0/16, 90.84.0.0/16, 84.39.0.0/16"
 
 }
 
