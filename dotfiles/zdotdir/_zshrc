@@ -1,0 +1,2 @@
+ZDOTDIR="/home/alexfan/WorkSpace/timelyFiles/dotfiles"
+. $ZDOTDIR/.zshenv
